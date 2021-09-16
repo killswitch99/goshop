@@ -8,6 +8,7 @@ const reviewSchema = mongoose.Schema(
 		rating: {
 			type: Number,
 			required: true,
+			default: 0,
 		},
 		comment: {
 			type: String,
@@ -38,7 +39,7 @@ const productSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		catagory: {
+		category: {
 			type: String,
 			required: true,
 		},
