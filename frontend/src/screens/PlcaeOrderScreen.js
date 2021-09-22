@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom'
 import { createOrder } from '../actions/orderActions'
 
 const PlcaeOrderScreen = ({ history }) => {
+	const orderCreate = useSelector((state) => state.orderCreate)
+	const { order, success, error } = orderCreate
 	const dispatch = useDispatch()
+
 	const addDecimals = (num) => {
 		return (Math.round(num * 100) / 100).toFixed(2)
 	}
@@ -29,9 +32,6 @@ const PlcaeOrderScreen = ({ history }) => {
 		Number(cart.shippingPrice) +
 		Number(cart.taxPrice)
 	).toFixed(2)
-
-	const orderCreate = useSelector((state) => state.orderCreate)
-	const { order, success, error } = orderCreate
 
 	useEffect(() => {
 		if (success) {
